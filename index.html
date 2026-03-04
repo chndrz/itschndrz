@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandra Saputra | Writing things I don't say out loud.</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #F9F8F6; /* Off-white / Beige */
+            --text-color: #5A5A5A; /* Soft Grey */
+            --accent-color: #8C8C8C; /* Muted Grey */
+            --heading-font: 'Cormorant Garamond', serif;
+            --body-font: 'Inter', sans-serif;
+            --spacing-unit: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            font-weight: 300;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            width: 100%;
+            max-width: 600px; /* 1 Column Layout */
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            flex: 1;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 400;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.6;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 3rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--text-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-style: italic;
+            font-family: var(--heading-font);
+        }
+
+        /* --- ABOUT --- */
+        .about-content {
+            padding-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- BLOG --- */
+        .blog-list {
+            list-style: none;
+        }
+
+        .blog-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #EAEAEA;
+        }
+
+        .blog-item:last-child {
+            border-bottom: none;
+        }
+
+        .blog-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .blog-preview {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid #EAEAEA;
+            margin-top: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">C.S.</div>
+            <div class="nav-links">
+                <div class="nav-item" onclick="showPage('home')">Home</div>
+                <div class="nav-item" onclick="showPage('about')">About</div>
+                <div class="nav-item" onclick="showPage('blog')">Writings</div>
+            </div>
+        </nav>
+
+        <!-- HOME PAGE -->
+        <section id="home" class="active">
+            <div class="hero">
+                <h1>Chandra Saputra</h1>
+                <p>"Writing things I don't say out loud."</p>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about">
+            <h2 class="section-title">About</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I am an observer of quiet moments. In a world that is constantly shouting, I find my voice in the silence.
+                    </p>
+                    <p>
+                        This space is a digital garden where I cultivate thoughts, fragments of stories, and reflections on the mundane. I believe in the power of simplicity—both in design and in living.
+                    </p>
+                    <p>
+                        Currently exploring the intersection of minimalism, digital wellness, and the art of slow living.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG PAGE -->
+        <section id="blog">
+            <h2 class="section-title">Writings</h2>
+            <ul class="blog-list">
+                <li class="blog-item">
+                    <a href="#" class="blog-title">The Art of Doing Nothing</a>
+                    <p class="blog-preview">Why productivity isn't the only metric that matters in a chaotic life.</p>
+                </li>
+                <li class="blog-item">
+                    <a href="#" class="blog-title">Notes on a Rainy Tuesday</a>
+                    <p class="blog-preview">Finding comfort in the grey skies and the sound of water against the window.</p>
+                </li>
+                <li class="blog-item">
+                    <a href="#" class="blog-title">Why I Left the City</a>
+                    <p class="blog-preview">A reflection on trading noise for silence and concrete for greenery.</p>
+                </li>
+                <li class="blog-item">
+                    <a href="#" class="blog-title">Digital Minimalism</a>
+                    <p class="blog-preview">How reducing screen time helped me reclaim my attention span.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="social-links">
+                <a href="mailto:contact@notyourchndrz.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
+                <a href="https://facebook.com/cogaanz" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com/notyourchndrz" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="contact-info">
+                <p>contact@notyourchndrz.com</p>
+                <p>&copy; 2023 Chandra Saputra</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Simple script to handle "Multipage" feel without reloading
+        function showPage(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            const activeSection = document.getElementById(pageId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+        }
+    </script>
+</body>
+              </html>
